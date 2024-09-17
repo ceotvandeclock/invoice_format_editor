@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+          <!--Configuration View-->
+        <record id="base_new_layout" model="ir.ui.view">
+            <field name="name">base.layout.new</field>
+            <field name="model">base.document.layout</field>
+            <field name="inherit_id" ref="web.view_base_document_layout"/>
+            <field name="arch" type="xml">
+                <field name="paperformat_id" position="after">
+                    <field name="base_layout" required="1"  attrs="{'invisible': [('paperformat_id','=',3)]}"/>
+                    <field name="document_layout_id"
+                           attrs="{'invisible': ['|',('base_layout','=','default'), ('paperformat_id','=',3)]}"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
